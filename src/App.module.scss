@@ -1,0 +1,37 @@
+.App {
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   background-attachment: fixed;
+   user-select: none;
+
+   // animation: fade2 0.8s ease-in;
+}
+
+.fade {
+   animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes fade2 {
+   from {
+      opacity: 0.3;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+// HEADER
+
+// SLOGAN
+
+// BLOG

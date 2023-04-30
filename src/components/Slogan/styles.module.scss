@@ -1,0 +1,39 @@
+.Slogan {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+
+   height: 100vh;
+
+   & > h1 {
+      display: inline-block;
+      font-size: 2.6em;
+   }
+
+   &.fade > h1 {
+      animation: scale 1s ease-in-out;
+   }
+}
+
+.fade {
+   animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+   from {
+      background: rgba(0, 0, 0, 0.5);
+   }
+   to {
+      background: transparent;
+   }
+}
+
+@keyframes scale {
+   from {
+      transform: scale(0.5);
+   }
+   to {
+      transform: scale(1);
+   }
+}

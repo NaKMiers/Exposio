@@ -1,0 +1,75 @@
+.Header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   height: 7.4em;
+   padding: 2.5em 0;
+   background-color: #000;
+
+   @media (max-width: '1000px') {
+      height: 10.2em;
+      flex-direction: column;
+
+      & .menuButton {
+         display: block;
+      }
+
+      & .navbar {
+         display: none;
+      }
+   }
+}
+
+.fade {
+   animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+.brand {
+   flex: 1;
+   text-align: center;
+   height: 100%;
+   cursor: pointer;
+   animation: fade 1s ease-in-out;
+
+   & > p {
+      text-transform: uppercase;
+      font-size: 2.1em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+   }
+}
+
+.navbar {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   text-align: center;
+   height: 100%;
+   animation: fade 1s ease-in-out;
+
+   & > div {
+      font-size: 1em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      margin: 0 0.7em;
+   }
+}
+
+.menuButton {
+   display: none;
+   margin-top: 0.4em;
+   font-size: 1.9em;
+   border-radius: 0.1em;
+   animation: fade 1s ease-in-out;
+}
