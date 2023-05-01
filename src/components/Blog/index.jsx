@@ -27,7 +27,7 @@ function Blog() {
    }, [])
 
    return (
-      <section className={styles.Blog} ref={blogRef}>
+      <section className={styles.Blog} ref={blogRef} id='Blog'>
          <h1>BLOG</h1>
          <p>Welcome to my blog. Here I will post news and updates.</p>
 

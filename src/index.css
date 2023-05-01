@@ -4,6 +4,10 @@
    box-sizing: border-box;
 }
 
+html {
+   scroll-behavior: smooth;
+}
+
 body {
    color: #fff;
    margin: 0;
@@ -15,6 +19,7 @@ body {
 a {
    text-decoration: none;
    cursor: pointer;
+   color: inherit
 }
 
 button {

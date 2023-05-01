@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import styles from './App.module.scss'
 import Header from './components/Header'
-import Slogan from './components/Slogan'
-import Blog from './components/Blog'
+import HomePage from './pages/HomePage'
+import BlogPage from './pages/BlogPage'
 
 function App() {
    useEffect(() => {
@@ -16,23 +17,10 @@ function App() {
          {/* HEADER */}
          <Header />
 
-         {/* SLOGAN */}
-         <Slogan />
-
-         {/* BLOG */}
-         <Blog />
-
-         {/* GALARY */}
-         <section></section>
-
-         {/* SERVICE */}
-         <section></section>
-
-         {/* CONTACT */}
-         <section></section>
-
-         {/* LOGO */}
-         <section></section>
+         <Routes>
+            <Route path='/' exact={true} element={<HomePage />} />
+            <Route path='/blog' exact={false} element={<BlogPage />} />
+         </Routes>
 
          {/* FOOTER */}
          <footer></footer>

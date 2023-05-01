@@ -1,0 +1,62 @@
+.BlogPage {
+   text-align: center;
+   background: #000;
+   min-height: 100vh;
+}
+
+.article {
+   height: 100%;
+   width: 80%;
+   margin: auto;
+   padding: 6em 0 3em 0;
+
+   & > h1 {
+      font-size: 3em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+   }
+
+   & > h5 {
+      font-weight: 600;
+   }
+
+   & > p {
+      margin: 1.8em 0;
+      font-size: 0.8em;
+      text-align: justify;
+   }
+}
+
+.thumbnail {
+   width: 100%;
+
+   & > img {
+      width: 100%;
+   }
+}
+
+.social {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 35%;
+   margin: 3.5em auto 0 auto;
+
+   & > a {
+      font-size: 1em;
+   }
+}
+
+.buttonWrap {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 30%;
+   margin: 1.5em auto 0 auto;
+
+   & > button {
+      font-size: 2.3em;
+      background: none;
+      color: #fff;
+   }
+}

@@ -1,0 +1,88 @@
+.Service {
+   background: #000;
+   padding: 3.6em;
+   text-align: center;
+
+   & > h1 {
+      font-size: 2.8em;
+      margin-bottom: 0.8em;
+   }
+
+   & > p {
+      font-size: 0.9em;
+      margin-bottom: 1.1em;
+   }
+}
+
+.fade {
+   animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+.serviceContainer {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 4vw;
+   margin-top: 4em;
+
+   @media (max-width: 1000px) {
+      grid-template-columns: 1fr;
+      font-size: 1.1em;
+
+      & .serviceItem {
+         margin: 0 0 2.5em 0 !important;
+      }
+   }
+}
+
+.serviceItem {
+   display: flex;
+   flex-direction: column;
+   gap: 1.6em;
+   overflow: hidden;
+}
+
+.thumbnail {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   max-height: 15em;
+   overflow: hidden;
+
+   & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.5s ease-in-out;
+   }
+}
+
+.content {
+   width: 100%;
+   text-align: center;
+
+   & > h3 {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+   }
+
+   & > h5 {
+      font-weight: normal;
+   }
+
+   & > p {
+      font-size: 0.9em;
+      padding: 2em 0;
+      line-height: 1.4em;
+   }
+}

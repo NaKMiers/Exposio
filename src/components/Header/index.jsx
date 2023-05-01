@@ -12,10 +12,21 @@ function Header() {
             <FontAwesomeIcon icon={faBarChart} />
          </button>
          <nav className={styles.navbar}>
-            <div>Home</div>
-            <div>Gallery</div>
-            <div>Blog</div>
-            <div>Contact</div>
+            <div>
+               <a href='#Home'>Home</a>
+            </div>
+            <div>
+               <a href='#Blog'>Blog</a>
+            </div>
+            <div>
+               <a href='#Gallery'>Gallery</a>
+            </div>
+            <div>
+               <a href='#Gallery'>Service</a>
+            </div>
+            <div>
+               <a href='#Contact'>Contact</a>
+            </div>
          </nav>
       </header>
    )
