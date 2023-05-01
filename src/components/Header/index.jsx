@@ -1,5 +1,6 @@
 import { faBarChart } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
 import styles from './style.module.scss'
 
 function Header() {
@@ -13,7 +14,7 @@ function Header() {
          </button>
          <nav className={styles.navbar}>
             <div>
-               <a href='#Home'>Home</a>
+               <Link to='/'>Home</Link>
             </div>
             <div>
                <a href='#Blog'>Blog</a>

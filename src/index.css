@@ -27,3 +27,50 @@ button {
    outline: none;
    border: none;
 }
+
+.mui-textfield {
+   position: relative;
+   margin-bottom: 32px;
+}
+
+.mui-textfield label {
+   position: absolute;
+   left: 8px;
+   top: 12px;
+   color: #808080;
+   font-size: 14px;
+   font-weight: 400;
+   transition: all 0.3s ease-out;
+   pointer-events: none;
+}
+
+.mui-textfield input:focus~label,
+.mui-textfield input:valid~label {
+   top: -8px;
+   font-size: 12px;
+}
+
+.mui-textfield textarea:focus~label,
+.mui-textfield textarea:valid~label {
+   top: -20px;
+   font-size: 12px;
+}
+
+.mui-textfield input, .mui-textfield textarea {
+   border: none;
+   border-bottom: 1px solid #dcdcdc;
+   width: 100%;
+   font-size: 16px;
+   padding: 12px 8px;
+   background-color: transparent;
+   transition: border-color 0.3s ease-out;
+   color: inherit;
+}
+
+.mui-textfield input:focus {
+   outline: none;
+}
+
+.mui-textfield textarea:focus {
+   outline: none;
+}

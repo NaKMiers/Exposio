@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import styles from './styles.module.scss'
 
 function Slogan() {
    const sloganRef = useRef(null)
 
-   useEffect(() => {
-      window.addEventListener('scroll', () => {
+   useLayoutEffect(() => {
+      const handleScroll = () => {
          const elementTop = sloganRef.current.getBoundingClientRect().top
          const elementBottom = sloganRef.current.getBoundingClientRect().bottom
 
@@ -14,7 +14,13 @@ function Slogan() {
          } else {
             sloganRef.current.classList.remove(styles.fade)
          }
-      })
+      }
+
+      window.addEventListener('scroll', handleScroll)
+
+      return () => {
+         window.removeEventListener('scroll', handleScroll)
+      }
    }, [])
 
    return (

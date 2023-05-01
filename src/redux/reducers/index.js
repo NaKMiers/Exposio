@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import userReducer from './userReducer'
+import blogReducer from './blogReducer'
 
-const reducers = combineReducers({ user: userReducer })
+const reducers = combineReducers({ blogs: blogReducer })
 
 export default reducers

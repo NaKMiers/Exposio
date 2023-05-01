@@ -1,18 +1,22 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { slugify } from '../../data'
 import styles from './style.module.scss'
 
 function Blog() {
+   const blogs = useSelector(state => state.blogs)
    const blogRef = useRef(null)
    const blogContainerRef = useRef(null)
 
-   useEffect(() => {
+   useLayoutEffect(() => {
       const subElements = [...blogRef.current.children]
       const elements = [
          ...subElements.slice(0, subElements.length - 1),
          ...blogContainerRef.current.children,
       ]
 
-      window.addEventListener('scroll', () => {
+      const handleScroll = () => {
          elements.forEach(element => {
             const eTop = element.getBoundingClientRect().top
             const eBottom = element.getBoundingClientRect().bottom
@@ -23,7 +27,13 @@ function Blog() {
                element.classList.remove(styles.fade)
             }
          })
-      })
+      }
+
+      window.addEventListener('scroll', handleScroll)
+
+      return () => {
+         window.removeEventListener('scroll', handleScroll)
+      }
    }, [])
 
    return (
@@ -32,119 +42,29 @@ function Blog() {
          <p>Welcome to my blog. Here I will post news and updates.</p>
 
          <div className={styles.blogContainer} ref={blogContainerRef}>
-            <div className={styles.blogItem}>
-               <div className={styles.thumbnail}>
-                  <img src='imgs/blog1.jpg' alt='thumbnail' />
+            {blogs.map((blog, index) => (
+               <div
+                  className={`${styles.blogItem} ${index % 2 !== 0 ? styles.reverse : ''}`}
+                  key={index}
+               >
+                  <Link to={`/blog/${slugify(blog.title)}`} className={styles.thumbnail}>
+                     <img src={blog.thumbnail} alt='thumbnail' />
+                  </Link>
+                  <div className={styles.content}>
+                     <h3>
+                        <Link to={`/blog/${slugify(blog.title)}`}>{blog.title}</Link>
+                     </h3>
+                     <h5>{blog.date}</h5>
+
+                     <p>{blog.content}</p>
+
+                     {/* <button>Read More</button> */}
+                     <Link to={`/blog/${slugify(blog.title)}`} className={styles.readBtn}>
+                        Read More
+                     </Link>
+                  </div>
                </div>
-               <div className={styles.content}>
-                  <h3>On the road</h3>
-                  <h5>27 April, 2023</h5>
-
-                  <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum
-                     congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at
-                     tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis,
-                     ut hendrerit ...
-                  </p>
-
-                  <button>Read More</button>
-               </div>
-            </div>
-
-            <div className={`${styles.blogItem} ${styles.reverse}`}>
-               <div className={styles.thumbnail}>
-                  <img src='imgs/blog2.jpg' alt='thumbnail' />
-               </div>
-               <div className={styles.content}>
-                  <h3>Relaxing with sharks</h3>
-                  <h5>27 April, 2023</h5>
-
-                  <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum
-                     congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at
-                     tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis,
-                     ut hendrerit ...
-                  </p>
-
-                  <button>Read More</button>
-               </div>
-            </div>
-
-            <div className={styles.blogItem}>
-               <div className={styles.thumbnail}>
-                  <img src='imgs/blog3.jpg' alt='thumbnail' />
-               </div>
-               <div className={styles.content}>
-                  <h3>Magic view</h3>
-                  <h5>27 April, 2023</h5>
-
-                  <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum
-                     congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at
-                     tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis,
-                     ut hendrerit ...
-                  </p>
-
-                  <button>Read More</button>
-               </div>
-            </div>
-
-            <div className={`${styles.blogItem} ${styles.reverse}`}>
-               <div className={styles.thumbnail}>
-                  <img src='imgs/blog4.jpg' alt='thumbnail' />
-               </div>
-               <div className={styles.content}>
-                  <h3>In the night</h3>
-                  <h5>27 April, 2023</h5>
-
-                  <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum
-                     congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at
-                     tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis,
-                     ut hendrerit ...
-                  </p>
-
-                  <button>Read More</button>
-               </div>
-            </div>
-
-            <div className={styles.blogItem}>
-               <div className={styles.thumbnail}>
-                  <img src='imgs/blog5.jpg' alt='thumbnail' />
-               </div>
-               <div className={styles.content}>
-                  <h3>In the air</h3>
-                  <h5>27 April, 2023</h5>
-
-                  <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum
-                     congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at
-                     tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis,
-                     ut hendrerit ...
-                  </p>
-
-                  <button>Read More</button>
-               </div>
-            </div>
-
-            <div className={`${styles.blogItem} ${styles.reverse}`}>
-               <div className={styles.thumbnail}>
-                  <img src='imgs/blog6.jpg' alt='thumbnail' />
-               </div>
-               <div className={styles.content}>
-                  <h3>Northen light</h3>
-                  <h5>27 April, 2023</h5>
-
-                  <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum
-                     congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at
-                     tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis,
-                     ut hendrerit ...
-                  </p>
-
-                  <button>Read More</button>
-               </div>
-            </div>
+            ))}
          </div>
       </section>
    )

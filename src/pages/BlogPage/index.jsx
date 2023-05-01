@@ -1,28 +1,65 @@
-import React from 'react'
-import styles from './styles.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faCommentAlt, faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faAngleLeft, faAngleRight, faBars, faHeart as Loved } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
+import { slugify } from '../../data'
+import styles from './styles.module.scss'
 
 function BlogPage() {
+   const { id } = useParams()
+   const blogs = useSelector(state => state.blogs)
+   const dispatch = useDispatch()
+
+   const index = blogs.findIndex(blog => slugify(blog.title) === id)
+   const prevIndex = index === 0 ? blogs.length - 1 : index - 1
+   const nextIndex = index === blogs.length - 1 ? 0 : index + 1
+
+   const { prev, data, next } = {
+      prev: slugify(blogs[prevIndex].title),
+      data: blogs[index],
+      next: slugify(blogs[nextIndex].title),
+   }
+
+   const [openCmt, setOpenCmt] = useState(false)
+   const [openCf, setOpenCf] = useState(false)
+   const commentModalRef = useRef(null)
+   const commentBodyRef = useRef(null)
+   const confirmModalRef = useRef(null)
+   const confirmBodyRef = useRef(null)
+
+   const handleLike = () => {
+      dispatch({ type: 'like', id })
+   }
+
+   const handleSubmitComment = e => {
+      e.preventDefault()
+      setOpenCf(true)
+   }
+
+   const handleCloseCommentModal = e => {
+      if (commentBodyRef.current && !commentBodyRef.current.contains(e.target)) {
+         setOpenCmt(false)
+      }
+   }
+
+   const handleCloseConfirmModal = e => {
+      if (confirmBodyRef.current && !confirmBodyRef.current.contains(e.target)) {
+         setOpenCf(false)
+      }
+   }
+
    return (
       <div className={styles.BlogPage}>
          <article className={styles.article}>
-            <h1>ON THE ROAD</h1>
-            <h5>27 April, 2023</h5>
+            <h1>{data.title}</h1>
+            <h5>{data.date}</h5>
 
-            <p>
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue.
-               Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut
-               adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit elit
-               eros vel leo. Ut eu venenatis lectus. Mauris libero sem, sodales in sollicitudin at,
-               iaculis eget turpis. Donec sodales lacus dolor, a dignissim dolor cursus et. Donec at
-               vulputate massa, non consequat libero. Maecenas vehicula orci sit amet est facilisis
-               eleifend. Ut bibendum et est a aliquet. Integer egestas egestas leo a luctus.
-            </p>
+            <p>{data.content}</p>
 
-            <div className={styles.thumbnail}>
-               <img src='imgs/blog1.jpg' alt='thumbnail' />
+            <div className={`${styles.thumbnail} ${styles.fade}`}>
+               <img src={data.thumbnail} alt='thumbnail' />
             </div>
 
             <div className={styles.social}>
@@ -41,21 +78,65 @@ function BlogPage() {
             </div>
 
             <div className={styles.buttonWrap}>
-               <button>
+               <Link to={'/blog/' + prev} className={styles.btn}>
                   <FontAwesomeIcon icon={faAngleLeft} />
-               </button>
-               <button>
+               </Link>
+               <Link to='/#Blog' className={styles.btn}>
                   <FontAwesomeIcon icon={faBars} />
-               </button>
-               <button>
+               </Link>
+               <Link to={'/blog/' + next} className={styles.btn}>
                   <FontAwesomeIcon icon={faAngleRight} />
-               </button>
-               <button>
+               </Link>
+               <button className={styles.btn} onClick={() => setOpenCmt(true)}>
                   <FontAwesomeIcon icon={faCommentAlt} />
                </button>
-               <button>
-                  <FontAwesomeIcon icon={faHeart} />
+               <button onClick={handleLike} className={styles.btn}>
+                  <FontAwesomeIcon icon={data.like ? Loved : faHeart} />
                </button>
+            </div>
+
+            <div
+               className={styles.commentModal}
+               ref={commentModalRef}
+               onClick={handleCloseCommentModal}
+               style={{ display: openCmt ? 'block' : 'none' }}
+            >
+               <form className={styles.commentBody} onSubmit={handleSubmitComment} ref={commentBodyRef}>
+                  <h1>{data.title}</h1>
+
+                  <div class='mui-textfield mui-textfield--float-label'>
+                     <textarea type='text' id='comment' comment='comment' required rows={1} />
+                     <label htmlFor='comment'>Your Comment</label>
+                  </div>
+
+                  <div class='mui-textfield mui-textfield--float-label'>
+                     <input type='text' id='name' name='name' required />
+                     <label htmlFor='name'>Your Name</label>
+                  </div>
+
+                  <div class='mui-textfield mui-textfield--float-label'>
+                     <input type='text' id='email' email='email' required />
+                     <label htmlFor='email'>Your Email - Will not be public</label>
+                  </div>
+
+                  <button className={styles.commentBtn}>Comment</button>
+               </form>
+            </div>
+
+            <div
+               className={styles.confirmModal}
+               style={{ display: openCf ? 'block' : 'none' }}
+               ref={confirmModalRef}
+               onClick={handleCloseConfirmModal}
+            >
+               <div className={styles.confirmBody} ref={confirmBodyRef}>
+                  <p>Are you sure that you want to submit?</p>
+
+                  <div className={styles.confirmBtnWrap}>
+                     <button onClick={() => setOpenCf(false)}>No</button>
+                     <button>Yes</button>
+                  </div>
+               </div>
             </div>
          </article>
       </div>

@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import styles from './style.module.scss'
 
 function Service() {
    const serviceRef = useRef(null)
    const serviceContainerRef = useRef(null)
 
-   useEffect(() => {
+   useLayoutEffect(() => {
       const subElements = [...serviceRef.current.children]
       const elements = [
          ...subElements.slice(0, subElements.length - 1),
          ...serviceContainerRef.current.children,
       ]
 
-      window.addEventListener('scroll', () => {
+      const handleShow = () => {
          elements.forEach(element => {
             const eTop = element.getBoundingClientRect().top
             const eBottom = element.getBoundingClientRect().bottom
@@ -21,9 +21,9 @@ function Service() {
                element.classList.add(styles.fade)
             }
          })
-      })
+      }
 
-      window.addEventListener('scroll', () => {
+      const handleHide = () => {
          const eTop = serviceRef.current.getBoundingClientRect().top
          const eBottom = serviceRef.current.getBoundingClientRect().bottom
 
@@ -32,7 +32,15 @@ function Service() {
                element.classList.remove(styles.fade)
             })
          }
-      })
+      }
+
+      window.addEventListener('scroll', handleShow)
+      window.addEventListener('scroll', handleHide)
+
+      return () => {
+         window.removeEventListener('scroll', handleShow)
+         window.removeEventListener('scroll', handleHide)
+      }
    }, [])
 
    return (
@@ -43,7 +51,7 @@ function Service() {
          <div className={styles.serviceContainer} ref={serviceContainerRef}>
             <div className={styles.serviceItem}>
                <div className={styles.thumbnail}>
-                  <img src='imgs/ser1.jpg' alt='thumbnail' />
+                  <img src='/imgs/ser1.jpg' alt='thumbnail' />
                </div>
                <div className={styles.content}>
                   <h3>Wedding</h3>
@@ -58,7 +66,7 @@ function Service() {
 
             <div className={styles.serviceItem} style={{ marginTop: '15vh' }}>
                <div className={styles.thumbnail}>
-                  <img src='imgs/ser2.jpg' alt='thumbnail' />
+                  <img src='/imgs/ser2.jpg' alt='thumbnail' />
                </div>
                <div className={styles.content}>
                   <h3>Business</h3>
@@ -73,7 +81,7 @@ function Service() {
 
             <div className={styles.serviceItem} style={{ marginTop: '-15vh' }}>
                <div className={styles.thumbnail}>
-                  <img src='imgs/ser3.jpg' alt='thumbnail' />
+                  <img src='/imgs/ser3.jpg' alt='thumbnail' />
                </div>
                <div className={styles.content}>
                   <h3>Product</h3>

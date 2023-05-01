@@ -7,7 +7,7 @@ import styles from './styles.module.scss'
 
 function HomePage() {
    return (
-      <div className={styles.App} style={{ backgroundImage: 'url(imgs/background1.jpg)' }}>
+      <div className={styles.HomePage}>
          {/* SLOGAN */}
          <Slogan />
 
