@@ -7,6 +7,37 @@
    user-select: none;
 }
 
+.scrollToTopBtn {
+   position: fixed;
+   right: 5vw;
+   bottom: 5vh;
+   z-index: 1;
+
+   width: 45px;
+   height: 45px;
+   font-size: 1.3em;
+   background: rgba(255, 255, 255, 0.1);
+   color: #fff;
+   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+
+   &:hover:after {
+      width: 100%;
+   }
+
+   &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+
+      width: 0;
+      height: 2px;
+      background: #333;
+      transition: width 0.3s ease-in-out;
+   }
+}
+
 .fade {
    animation: fade 1s ease-in-out;
 }
