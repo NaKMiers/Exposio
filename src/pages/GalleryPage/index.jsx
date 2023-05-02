@@ -1,6 +1,6 @@
 import { faAngleLeft, faAngleRight, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useRef } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { slugify } from '../../data'
@@ -62,4 +62,4 @@ function GalleryPage() {
    )
 }
 
-export default GalleryPage
+export default memo(GalleryPage)

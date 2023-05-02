@@ -1,7 +1,7 @@
 import { faCommentAlt, faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faAngleLeft, faAngleRight, faBars, faHeart as Loved } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useState } from 'react'
+import React, { memo, useCallback, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { slugify } from '../../data'
@@ -29,26 +29,26 @@ function BlogPage() {
    const confirmModalRef = useRef(null)
    const confirmBodyRef = useRef(null)
 
-   const handleLike = () => {
+   const handleLike = useCallback(() => {
       dispatch({ type: 'like', id })
-   }
+   }, [dispatch, id])
 
-   const handleSubmitComment = e => {
+   const handleSubmitComment = useCallback(e => {
       e.preventDefault()
       setOpenCf(true)
-   }
+   }, [])
 
-   const handleCloseCommentModal = e => {
+   const handleCloseCommentModal = useCallback(e => {
       if (commentBodyRef.current && !commentBodyRef.current.contains(e.target)) {
          setOpenCmt(false)
       }
-   }
+   }, [])
 
-   const handleCloseConfirmModal = e => {
+   const handleCloseConfirmModal = useCallback(e => {
       if (confirmBodyRef.current && !confirmBodyRef.current.contains(e.target)) {
          setOpenCf(false)
       }
-   }
+   }, [])
 
    return (
       <div className={styles.BlogPage}>
@@ -143,4 +143,4 @@ function BlogPage() {
    )
 }
 
-export default BlogPage
+export default memo(BlogPage)

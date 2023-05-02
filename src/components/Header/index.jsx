@@ -2,6 +2,7 @@ import { faBarChart } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import styles from './style.module.scss'
+import { memo } from 'react'
 
 function Header() {
    return (
@@ -33,4 +34,4 @@ function Header() {
    )
 }
 
-export default Header
+export default memo(Header)

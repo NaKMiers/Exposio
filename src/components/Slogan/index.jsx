@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import React, { memo, useCallback, useEffect, useLayoutEffect, useRef } from 'react'
 import styles from './styles.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -7,41 +7,41 @@ function Slogan() {
    const dispatch = useDispatch()
    const sloganRef = useRef(null)
 
-   useEffect(() => {
-      const handleChangeBackground = () => {
-         const top = sloganRef.current.getBoundingClientRect().top
-         const bottom = sloganRef.current.getBoundingClientRect().bottom
+   const handleChangeBackground = useCallback(() => {
+      const top = sloganRef.current.getBoundingClientRect().top
+      const bottom = sloganRef.current.getBoundingClientRect().bottom
 
-         if (top < window.innerHeight && bottom > 0 && curBackground.id !== 1) {
-            dispatch({ type: 'change-background', id: 1 })
-         }
+      if (top < window.innerHeight && bottom > 0 && curBackground.id !== 1) {
+         dispatch({ type: 'change-background', id: 1 })
       }
+   }, [curBackground.id, dispatch])
 
+   useEffect(() => {
       window.addEventListener('scroll', handleChangeBackground)
 
       return () => {
          window.removeEventListener('scroll', handleChangeBackground)
       }
-   }, [dispatch, curBackground.id])
+   }, [handleChangeBackground])
+
+   const handleScroll = useCallback(() => {
+      const eTop = sloganRef.current.getBoundingClientRect().top
+      const eBottom = sloganRef.current.getBoundingClientRect().bottom
+
+      if (eTop < window.innerHeight && eBottom > 0) {
+         sloganRef.current.classList.add(styles.fade)
+      } else {
+         sloganRef.current.classList.remove(styles.fade)
+      }
+   }, [])
 
    useLayoutEffect(() => {
-      const handleScroll = () => {
-         const elementTop = sloganRef.current.getBoundingClientRect().top
-         const elementBottom = sloganRef.current.getBoundingClientRect().bottom
-
-         if (elementTop < window.innerHeight && elementBottom > 0) {
-            sloganRef.current.classList.add(styles.fade)
-         } else {
-            sloganRef.current.classList.remove(styles.fade)
-         }
-      }
-
       window.addEventListener('scroll', handleScroll)
 
       return () => {
          window.removeEventListener('scroll', handleScroll)
       }
-   }, [])
+   }, [handleScroll])
 
    return (
       <section className={`${styles.Slogan} ${styles.fade}`} ref={sloganRef}>
@@ -50,4 +50,4 @@ function Slogan() {
    )
 }
 
-export default Slogan
+export default memo(Slogan)

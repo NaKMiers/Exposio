@@ -1,39 +1,45 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { memo, useCallback, useLayoutEffect, useRef } from 'react'
 import styles from './style.module.scss'
 
 function Service() {
    const serviceRef = useRef(null)
    const serviceContainerRef = useRef(null)
 
-   useLayoutEffect(() => {
+   const handleShow = useCallback(() => {
       const subElements = [...serviceRef.current.children]
       const elements = [
          ...subElements.slice(0, subElements.length - 1),
          ...serviceContainerRef.current.children,
       ]
 
-      const handleShow = () => {
-         elements.forEach(element => {
-            const eTop = element.getBoundingClientRect().top
-            const eBottom = element.getBoundingClientRect().bottom
+      elements.forEach(element => {
+         const eTop = element.getBoundingClientRect().top
+         const eBottom = element.getBoundingClientRect().bottom
 
-            if (eTop < window.innerHeight && eBottom > 0) {
-               element.classList.add(styles.fade)
-            }
+         if (eTop < window.innerHeight && eBottom > 0) {
+            element.classList.add(styles.fade)
+         }
+      })
+   }, [])
+
+   const handleHide = useCallback(() => {
+      const subElements = [...serviceRef.current.children]
+      const elements = [
+         ...subElements.slice(0, subElements.length - 1),
+         ...serviceContainerRef.current.children,
+      ]
+
+      const eTop = serviceRef.current.getBoundingClientRect().top
+      const eBottom = serviceRef.current.getBoundingClientRect().bottom
+
+      if (eTop >= window.innerHeight || eBottom <= 0) {
+         elements.forEach(element => {
+            element.classList.remove(styles.fade)
          })
       }
+   }, [])
 
-      const handleHide = () => {
-         const eTop = serviceRef.current.getBoundingClientRect().top
-         const eBottom = serviceRef.current.getBoundingClientRect().bottom
-
-         if (eTop >= window.innerHeight || eBottom <= 0) {
-            elements.forEach(element => {
-               element.classList.remove(styles.fade)
-            })
-         }
-      }
-
+   useLayoutEffect(() => {
       window.addEventListener('scroll', handleShow)
       window.addEventListener('scroll', handleHide)
 
@@ -41,7 +47,7 @@ function Service() {
          window.removeEventListener('scroll', handleShow)
          window.removeEventListener('scroll', handleHide)
       }
-   }, [])
+   }, [handleShow, handleHide])
 
    return (
       <section className={styles.Service} ref={serviceRef} id='Service'>
@@ -98,4 +104,4 @@ function Service() {
    )
 }
 
-export default Service
+export default memo(Service)

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import Blog from '../../components/Blog'
 import Brand from '../../components/Brand'
 import Contact from '../../components/Contact'
@@ -30,4 +31,4 @@ function HomePage() {
    )
 }
 
-export default HomePage
+export default memo(HomePage)

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { memo, useCallback, useLayoutEffect, useRef } from 'react'
 import styles from './style.module.scss'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -10,35 +10,41 @@ function Gallery() {
    const galleryRef = useRef(null)
    const galleryContainerRef = useRef(null)
 
-   useLayoutEffect(() => {
+   const handleShow = useCallback(() => {
       const subElements = [...galleryRef.current.children]
       const elements = [
          ...subElements.slice(0, subElements.length - 1),
          ...galleryContainerRef.current.children,
       ]
 
-      const handleShow = () => {
-         elements.forEach(element => {
-            const eTop = element.getBoundingClientRect().top
-            const eBottom = element.getBoundingClientRect().bottom
+      elements.forEach(element => {
+         const eTop = element.getBoundingClientRect().top
+         const eBottom = element.getBoundingClientRect().bottom
 
-            if (eTop < window.innerHeight && eBottom > 0) {
-               element.classList.add(styles.fade)
-            }
+         if (eTop < window.innerHeight && eBottom > 0) {
+            element.classList.add(styles.fade)
+         }
+      })
+   }, [])
+
+   const handleHide = useCallback(() => {
+      const subElements = [...galleryRef.current.children]
+      const elements = [
+         ...subElements.slice(0, subElements.length - 1),
+         ...galleryContainerRef.current.children,
+      ]
+
+      const eTop = galleryRef.current.getBoundingClientRect().top
+      const eBottom = galleryRef.current.getBoundingClientRect().bottom
+
+      if (eTop >= window.innerHeight || eBottom <= 0) {
+         elements.forEach(element => {
+            element.classList.remove(styles.fade)
          })
       }
+   }, [])
 
-      const handleHide = () => {
-         const eTop = galleryRef.current.getBoundingClientRect().top
-         const eBottom = galleryRef.current.getBoundingClientRect().bottom
-
-         if (eTop >= window.innerHeight || eBottom <= 0) {
-            elements.forEach(element => {
-               element.classList.remove(styles.fade)
-            })
-         }
-      }
-
+   useLayoutEffect(() => {
       window.addEventListener('scroll', handleShow)
       window.addEventListener('scroll', handleHide)
 
@@ -46,7 +52,7 @@ function Gallery() {
          window.removeEventListener('scroll', handleShow)
          window.removeEventListener('scroll', handleHide)
       }
-   }, [])
+   }, [handleShow, handleHide])
 
    return (
       <section className={styles.Gallery} ref={galleryRef} id='Gallery'>
@@ -68,4 +74,4 @@ function Gallery() {
    )
 }
 
-export default Gallery
+export default memo(Gallery)

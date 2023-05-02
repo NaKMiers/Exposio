@@ -8,6 +8,25 @@ import BlogPage from './pages/BlogPage'
 import GalleryPage from './pages/GalleryPage'
 import HomePage from './pages/HomePage'
 
+const Layout1 = ({ children }) => {
+   return (
+      <>
+         <Header />
+         {children}
+         <Footer />
+      </>
+   )
+}
+
+const Layout2 = ({ children }) => {
+   return (
+      <>
+         <Header />
+         {children}
+      </>
+   )
+}
+
 function App() {
    const curBg = useSelector(state => state.backgrounds.current)
 
@@ -21,17 +40,27 @@ function App() {
 
    return (
       <div className={styles.App} style={{ backgroundImage: `url(${curBg.bg})` }}>
-         {/* HEADER */}
-         <Header />
-
          <Routes>
-            <Route path='/' exact={true} element={<HomePage />} />
-            <Route path='/blog/:id' exact={false} element={<BlogPage />} />
+            <Route
+               path='/'
+               exact={true}
+               element={
+                  <Layout1>
+                     <HomePage />
+                  </Layout1>
+               }
+            />
+            <Route
+               path='/blog/:id'
+               exact={false}
+               element={
+                  <Layout2>
+                     <BlogPage />
+                  </Layout2>
+               }
+            />
             <Route path='/gallery/:id' exact={false} element={<GalleryPage />} />
          </Routes>
-
-         {/* FOOTER */}
-         <Footer />
       </div>
    )
 }
