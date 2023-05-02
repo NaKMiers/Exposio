@@ -33,7 +33,6 @@ export const slugify = string => {
    string = string.replace(/--+/g, '-')
    string = string.replace(/^-+/g, '')
    string = string.replace(/-+$/g, '')
-
    return string
 }
 
@@ -84,6 +83,85 @@ export const blogs = [
       content:
          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit ...',
       thumbnail: '/imgs/blog6.jpg',
+      like: false,
+   },
+]
+
+export const galleries = [
+   {
+      image: '/imgs/gal1.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal2.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal3.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal4.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal5.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal7.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal8.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal9.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal10.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal11.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal12.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal13.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal14.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal15.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal16.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal17.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal18.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal19.jpg',
+      like: false,
+   },
+   {
+      image: '/imgs/gal20.jpg',
       like: false,
    },
 ]

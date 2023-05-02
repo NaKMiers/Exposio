@@ -5,7 +5,7 @@ import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { slugify } from '../../data'
-import styles from './styles.module.scss'
+import styles from './style.module.scss'
 
 function BlogPage() {
    const { id } = useParams()
@@ -104,17 +104,17 @@ function BlogPage() {
                <form className={styles.commentBody} onSubmit={handleSubmitComment} ref={commentBodyRef}>
                   <h1>{data.title}</h1>
 
-                  <div class='mui-textfield mui-textfield--float-label'>
+                  <div className='mui-textfield mui-textfield--float-label'>
                      <textarea type='text' id='comment' comment='comment' required rows={1} />
                      <label htmlFor='comment'>Your Comment</label>
                   </div>
 
-                  <div class='mui-textfield mui-textfield--float-label'>
+                  <div className='mui-textfield mui-textfield--float-label'>
                      <input type='text' id='name' name='name' required />
                      <label htmlFor='name'>Your Name</label>
                   </div>
 
-                  <div class='mui-textfield mui-textfield--float-label'>
+                  <div className='mui-textfield mui-textfield--float-label'>
                      <input type='text' id='email' email='email' required />
                      <label htmlFor='email'>Your Email - Will not be public</label>
                   </div>

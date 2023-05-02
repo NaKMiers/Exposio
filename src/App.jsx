@@ -2,8 +2,9 @@ import { useLayoutEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import styles from './App.module.scss'
 import Header from './components/Header'
-import BlogPage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
+import BlogPage from './pages/BlogPage'
+import GalleryPage from './pages/GalleryPage'
 
 function App() {
    useLayoutEffect(() => {
@@ -20,6 +21,7 @@ function App() {
          <Routes>
             <Route path='/' exact={true} element={<HomePage />} />
             <Route path='/blog/:id' exact={false} element={<BlogPage />} />
+            <Route path='/gallery/:id' exact={false} element={<GalleryPage />} />
          </Routes>
 
          {/* FOOTER */}
