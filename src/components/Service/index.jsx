@@ -27,7 +27,7 @@ function Service() {
          const eTop = serviceRef.current.getBoundingClientRect().top
          const eBottom = serviceRef.current.getBoundingClientRect().bottom
 
-         if (eTop >= window.innerHeight && eBottom <= 0) {
+         if (eTop >= window.innerHeight || eBottom <= 0) {
             elements.forEach(element => {
                element.classList.remove(styles.fade)
             })

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { memo, useLayoutEffect, useRef, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { slugify } from '../../data'
@@ -9,32 +9,49 @@ function Blog() {
    const blogRef = useRef(null)
    const blogContainerRef = useRef(null)
 
-   useLayoutEffect(() => {
+   const handleShow = useCallback(() => {
       const subElements = [...blogRef.current.children]
       const elements = [
          ...subElements.slice(0, subElements.length - 1),
          ...blogContainerRef.current.children,
       ]
 
-      const handleScroll = () => {
-         elements.forEach(element => {
-            const eTop = element.getBoundingClientRect().top
-            const eBottom = element.getBoundingClientRect().bottom
+      elements.forEach(element => {
+         const eTop = element.getBoundingClientRect().top
+         const eBottom = element.getBoundingClientRect().bottom
 
-            if (eTop < window.innerHeight && eBottom > 0) {
-               element.classList.add(styles.fade)
-            } else {
-               element.classList.remove(styles.fade)
-            }
+         if (eTop < window.innerHeight && eBottom > 0) {
+            element.classList.add(styles.fade)
+         }
+      })
+   }, [])
+
+   const handleHide = useCallback(() => {
+      const subElements = [...blogRef.current.children]
+      const elements = [
+         ...subElements.slice(0, subElements.length - 1),
+         ...blogContainerRef.current.children,
+      ]
+
+      const eTop = blogRef.current.getBoundingClientRect().top
+      const eBottom = blogRef.current.getBoundingClientRect().bottom
+
+      if (eTop >= window.innerHeight || eBottom <= 0) {
+         elements.forEach(element => {
+            element.classList.remove(styles.fade)
          })
       }
+   }, [])
 
-      window.addEventListener('scroll', handleScroll)
+   useLayoutEffect(() => {
+      window.addEventListener('scroll', handleShow)
+      window.addEventListener('scroll', handleHide)
 
       return () => {
-         window.removeEventListener('scroll', handleScroll)
+         window.removeEventListener('scroll', handleShow)
+         window.removeEventListener('scroll', handleHide)
       }
-   }, [])
+   }, [handleShow, handleHide])
 
    return (
       <section className={styles.Blog} ref={blogRef} id='Blog'>
@@ -48,7 +65,7 @@ function Blog() {
                   key={index}
                >
                   <Link to={`/blog/${slugify(blog.title)}`} className={styles.thumbnail}>
-                     <img src={blog.thumbnail} alt='thumbnail' />
+                     <img src={blog.thumbnail} alt='thumbnail' loading='lazy' />
                   </Link>
                   <div className={styles.content}>
                      <h3>
@@ -70,4 +87,4 @@ function Blog() {
    )
 }
 
-export default Blog
+export default memo(Blog)

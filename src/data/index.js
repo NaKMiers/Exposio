@@ -165,3 +165,62 @@ export const galleries = [
       like: false,
    },
 ]
+
+export const backgrounds = [
+   { bg: '/imgs/background1.jpg', id: 1 },
+   { bg: '/imgs/background2.jpg', id: 2 },
+   { bg: '/imgs/background3.jpg', id: 3 },
+]
+
+export const brands = [
+   {
+      name: 'Cassette Studio',
+      country: 'Ireland',
+      logo: '/imgs/brand1.png',
+   },
+   {
+      name: 'Keep Rollin',
+      country: 'Ireland',
+      logo: '/imgs/brand2.png',
+   },
+   {
+      name: 'Stockholm Old',
+      country: 'Scotland',
+      logo: '/imgs/brand3.png',
+   },
+   {
+      name: 'Elon Wild',
+      country: 'Sweden',
+      logo: '/imgs/brand4.png',
+   },
+   {
+      name: 'Mountfox Gear',
+      country: 'Sweden',
+      logo: '/imgs/brand5.png',
+   },
+   {
+      name: 'NYX Creations',
+      country: 'London',
+      logo: '/imgs/brand6.png',
+   },
+   {
+      name: 'Thomas Van Cam',
+      country: 'China',
+      logo: '/imgs/brand7.png',
+   },
+   {
+      name: 'Van Cameos',
+      country: 'Germany',
+      logo: '/imgs/brand8.png',
+   },
+   {
+      name: 'Top View Montana',
+      country: 'Germany',
+      logo: '/imgs/brand9.png',
+   },
+   {
+      name: 'Tropic Vibes',
+      country: 'Germany',
+      logo: '/imgs/brand10.png',
+   },
+]

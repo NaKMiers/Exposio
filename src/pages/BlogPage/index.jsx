@@ -134,7 +134,7 @@ function BlogPage() {
 
                   <div className={styles.confirmBtnWrap}>
                      <button onClick={() => setOpenCf(false)}>No</button>
-                     <button>Yes</button>
+                     <button onClick={() => setOpenCf(false)}>Yes</button>
                   </div>
                </div>
             </div>

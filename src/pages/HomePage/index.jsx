@@ -1,4 +1,5 @@
 import Blog from '../../components/Blog'
+import Brand from '../../components/Brand'
 import Contact from '../../components/Contact'
 import Gallery from '../../components/Gallery'
 import Service from '../../components/Service'
@@ -24,7 +25,7 @@ function HomePage() {
          <Contact />
 
          {/* LOGO */}
-         <section></section>
+         <Brand />
       </div>
    )
 }

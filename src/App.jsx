@@ -1,12 +1,18 @@
 import { useLayoutEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import styles from './App.module.scss'
+import Footer from './components/Footer'
 import Header from './components/Header'
-import HomePage from './pages/HomePage'
 import BlogPage from './pages/BlogPage'
 import GalleryPage from './pages/GalleryPage'
+import HomePage from './pages/HomePage'
 
 function App() {
+   const curBg = useSelector(state => state.backgrounds.current)
+
+   console.log(curBg)
+
    useLayoutEffect(() => {
       document.addEventListener('contextmenu', function (e) {
          e.preventDefault()
@@ -14,7 +20,7 @@ function App() {
    }, [])
 
    return (
-      <div className={styles.App} style={{ backgroundImage: 'url(/imgs/background1.jpg)' }}>
+      <div className={styles.App} style={{ backgroundImage: `url(${curBg.bg})` }}>
          {/* HEADER */}
          <Header />
 
@@ -25,7 +31,7 @@ function App() {
          </Routes>
 
          {/* FOOTER */}
-         <footer></footer>
+         <Footer />
       </div>
    )
 }

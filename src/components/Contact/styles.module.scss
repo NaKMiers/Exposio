@@ -1,20 +1,95 @@
-.Slogan {
+.Contact {
    display: flex;
    justify-content: center;
    align-items: center;
    text-align: center;
 
    height: 100vh;
+   padding: 7vh 5vw;
+}
 
+.contactBody {
+   width: 65%;
    & > h1 {
-      display: inline-block;
-      font-size: 2.6em;
-      width: 80%;
+      font-size: 3em;
       letter-spacing: 0.1em;
    }
+}
 
-   &.fade > h1 {
-      animation: scale 1s ease-in-out;
+.contactForm {
+   margin-top: 3em;
+
+   & > div {
+      margin-bottom: 3em;
+      & > input:focus ~ label,
+      & > input:valid ~ label,
+      & > textarea:focus ~ label,
+      & > textarea:valid ~ label {
+         color: #ccc;
+      }
+
+      & > label {
+         color: #fff;
+         font-size: 1em;
+         font-weight: 500;
+      }
+   }
+}
+
+.sendBtn {
+   height: 3.5em;
+   width: 5.4em;
+   background: none;
+   color: inherit;
+   border: 1px solid #fff;
+   border-radius: 0.5em;
+}
+
+.confirmModal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+}
+
+.confirmBody {
+   position: absolute;
+   background: #000;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 400px;
+   max-width: 80%;
+   padding: 2.5em;
+   border-radius: 0.3em;
+   cursor: initial;
+
+   & > p {
+      font-size: 0.85em;
+      padding: 1.5em;
+      margin-bottom: 2.1em;
+   }
+}
+
+.confirmBtnWrap {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+   width: 74%;
+   margin: auto;
+   padding: 0.65em;
+
+   & > button {
+      height: 3.5em;
+      width: 5.4em;
+      background: none;
+      color: inherit;
+      border: 1px solid #fff;
+      border-radius: 0.5em;
    }
 }
 
@@ -22,20 +97,26 @@
    animation: fade 1s ease-in-out;
 }
 
+.fade2 {
+   animation: fade2 1s ease-in-out;
+}
+
 @keyframes fade {
+   from {
+      opacity: 0;
+      transform: scale(0.3);
+   }
+   to {
+      opacity: 1;
+      transform: scale(1);
+   }
+}
+
+@keyframes fade2 {
    from {
       background: rgba(0, 0, 0, 0.5);
    }
    to {
       background: transparent;
-   }
-}
-
-@keyframes scale {
-   from {
-      transform: scale(0.5);
-   }
-   to {
-      transform: scale(1);
    }
 }
