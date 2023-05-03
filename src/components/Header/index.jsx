@@ -54,7 +54,7 @@ function Header() {
                <a href='#Gallery'>Gallery</a>
             </div>
             <div>
-               <a href='#Gallery'>Service</a>
+               <a href='#Service'>Service</a>
             </div>
             <div>
                <a href='#Contact'>Contact</a>
