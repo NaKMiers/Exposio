@@ -41,7 +41,7 @@ export const blogs = [
       title: 'On the road',
       date: '27 April, 2023',
       content:
-         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit ...',
+         "Embarking on a backpacking trip is a thrilling adventure, full of excitement and the unknown. The road ahead is a blank canvas, waiting to be filled with new experiences, breathtaking views, and unexpected challenges. Each step is a new opportunity to discover something about oneself and the world. The weight of the backpack is a reminder of the essentials needed to survive in the great outdoors. As the miles pass, the scenery changes, and so does one's perspective. The journey is not just about the destination but about the people met along the way, the stories shared, and the memories made. A backpacking trip is a test of endurance, resilience, and determination, but it's also a reminder that life is meant to be lived to the fullest.",
       thumbnail: '/imgs/blog1.jpg',
       like: false,
    },
@@ -49,7 +49,7 @@ export const blogs = [
       title: 'Relaxing with sharks',
       date: '27 April, 2023',
       content:
-         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit ...',
+         'During my recent beach vacation, I had the opportunity to go on a shark diving adventure. At first, the idea of swimming with sharks made me nervous, but the experienced guides reassured me that it was safe and exhilarating.\n\nAs I lowered myself into the water, I was amazed by the crystal-clear visibility and the vibrant colors of the coral reefs. Then, out of nowhere, a group of curious sharks appeared. They gracefully swam around us, coming within inches of our diving cage. I could see the intricate details of their skin and feel their powerful energy as they swam past.\n\nAfter the initial excitement wore off, I found myself completely relaxed in the underwater world. Watching the sharks in their natural habitat was a humbling experience, and I felt privileged to be able to witness it. The peaceful silence and the gentle sway of the water had a calming effect on me, and I felt completely immersed in the beauty of the ocean.\n\nAs the excursion came to an end, I was left with a newfound appreciation for these magnificent creatures and the underwater world. The experience of swimming with sharks was not only exhilarating but also a reminder of the importance of preserving our oceans and the creatures that call it home.',
       thumbnail: '/imgs/blog2.jpg',
       like: false,
    },
@@ -57,7 +57,7 @@ export const blogs = [
       title: 'Magic view',
       date: '27 April, 2023',
       content:
-         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit ...',
+         'Sitting on a boat and taking in the picturesque view of a river was a tranquil experience that left me in awe. As the boat glided along the serene waters, I was captivated by the stunning scenery that surrounded me. The glistening water sparkled in the sunlight and reflected the beauty of the sky and the greenery along the riverbank. The peaceful sound of the gentle waves and the rustling of the trees created a calming atmosphere that was perfect for escaping the hustle and bustle of everyday life.\n\nAs I continued to admire the breathtaking view, I felt a sense of gratitude for being able to witness the beauty of nature firsthand. It was a moment that reminded me of the simple pleasures in life and the importance of taking the time to appreciate them. The tranquil river view was a serene escape that left a lasting impression on my mind and soul.',
       thumbnail: '/imgs/blog3.jpg',
       like: false,
    },
@@ -65,7 +65,7 @@ export const blogs = [
       title: 'In the night',
       date: '27 April, 2023',
       content:
-         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit ...',
+         "The night has always held a certain mystique and allure for me. The darkness brings with it a sense of magic, mystery, and possibility. As the sun sets, the world around us transforms into a different realm, filled with new sounds, sights, and smells. The twinkling of stars, the rustling of leaves, and the gentle hum of nocturnal creatures create a symphony that's both soothing and mesmerizing.\n\nIn the night, the world seems to slow down, allowing us to pause and reflect. It's a time for introspection, for letting go of the worries of the day, and for connecting with our inner selves. The darkness also has a way of bringing people together, whether it's around a campfire, at a music festival, or simply strolling through a quiet neighborhood. There's a sense of camaraderie and shared experience that's hard to replicate during the day.\n\nThe night is a reminder of the power and beauty of the natural world, and a testament to the resilience and adaptability of life. It's a time to embrace the unknown and to find comfort in the magic of darkness.",
       thumbnail: '/imgs/blog4.jpg',
       like: false,
    },
@@ -73,7 +73,7 @@ export const blogs = [
       title: 'In the air',
       date: '27 April, 2023',
       content:
-         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit ...',
+         "There's something inherently magical about being up in the air. Whether it's in a plane, a hot air balloon, or a paraglider, the feeling of soaring above the earth is unlike anything else. The wind rushing through your hair, the feeling of weightlessness, and the breathtaking views all combine to create a sense of freedom and adventure that's hard to replicate on the ground.\n\nIn the air, you're removed from the hustle and bustle of everyday life. The noise and chaos fade away, replaced by a sense of tranquility and serenity. The world takes on a different perspective from up high, with familiar landmarks and landscapes looking completely different from above. It's a reminder of the beauty and vastness of our planet, and a humbling experience to realize how small we are in the grand scheme of things.\n\nFlight also has a way of inspiring creativity and innovation. From the earliest days of human history, people have looked up to the sky and dreamed of taking to the air. And thanks to the ingenuity and determination of inventors and engineers, that dream has become a reality. Today, aviation technology continues to push the boundaries of what's possible, opening up new frontiers of exploration and discovery.\n\nIn the air, anything seems possible. It's a space where dreams can take flight, and where the possibilities are limited only by our own imagination.",
       thumbnail: '/imgs/blog5.jpg',
       like: false,
    },
@@ -81,7 +81,7 @@ export const blogs = [
       title: 'Northen light',
       date: '27 April, 2023',
       content:
-         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dictum congue. Vivamus sed porta risus, ut laoreet leo. Aliquam aliquam id diam at tincidunt. Ut adipiscing, mauris et bibendum consequat, nisl nulla vulputate turpis, ut hendrerit ...',
+         "The Northern Lights, also known as Aurora Borealis, are one of the most spectacular natural phenomena in the world. They are a beautiful display of light and color that can be seen in the northern hemisphere, particularly in the Arctic regions.\n\nThe Northern Lights are caused by the collision of charged particles from the sun with atoms in the Earth's atmosphere. These collisions produce energy that is released as light, creating the colorful displays that we see in the sky.\n\nThe best time to see the Northern Lights is during the winter months, when the nights are longer and darker. It's also best to view them away from the lights of cities and towns, in a remote location where the sky is clear and unobstructed.\n\nExperiencing the Northern Lights is a truly unforgettable experience that everyone should have at least once in their lifetime. The beauty and magic of these lights is something that cannot be fully captured in words or pictures, and must be seen to be believed.",
       thumbnail: '/imgs/blog6.jpg',
       like: false,
    },

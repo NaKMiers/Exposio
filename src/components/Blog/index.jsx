@@ -75,7 +75,6 @@ function Blog() {
 
                      <p>{blog.content}</p>
 
-                     {/* <button>Read More</button> */}
                      <Link to={`/blog/${slugify(blog.title)}`} className={styles.readBtn}>
                         Read More
                      </Link>

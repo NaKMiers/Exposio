@@ -74,16 +74,16 @@ function Footer() {
 
          <div className={styles.socialWrap}>
             <a href='https://www.facebook.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/facebook2.png' alt='social' />
+               <img src='/imgs/facebook.png' alt='social' />
             </a>
             <a href='https://twitter.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/pinterest2.png' alt='social' />
+               <img src='/imgs/pinterest.png' alt='social' />
             </a>
             <a href='https://www.pinterest.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/twitter2.png' alt='social' />
+               <img src='/imgs/twitter.png' alt='social' />
             </a>
             <a href='https://www.linkedin.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/linkedin2.png' alt='social' />
+               <img src='/imgs/linkedin.png' alt='social' />
             </a>
          </div>
 

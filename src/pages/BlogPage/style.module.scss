@@ -20,6 +20,10 @@
 }
 
 .article {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
    height: 100%;
    width: 80%;
    margin: auto;
@@ -37,8 +41,9 @@
 
    & > p {
       margin: 1.8em 0;
-      font-size: 0.8em;
-      text-align: justify;
+      font-size: 0.95em;
+      text-align: center;
+      white-space: pre-wrap;
    }
 }
 
@@ -54,20 +59,21 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   width: 35%;
-   margin: 3.5em auto 0 auto;
+   gap: 1.2em;
+   margin-top: 3.5em;
 
    & > a {
       font-size: 1em;
+      font-weight: 500;
    }
 }
 
 .buttonWrap {
    display: flex;
    justify-content: space-between;
+   gap: 1.8em;
    align-items: center;
-   width: 30%;
-   margin: 1.5em auto 0 auto;
+   margin-top: 1.5em;
 
    & > .btn {
       font-size: 2.3em;

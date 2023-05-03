@@ -16,7 +16,7 @@
 @keyframes fade {
    from {
       opacity: 0;
-      transform: scale(0.3);
+      transform: scale(0.6);
    }
    to {
       opacity: 1;
@@ -28,16 +28,19 @@
    position: absolute;
    top: 0px;
    left: 14px;
-   font-size: 2.5em;
+   font-size: 2.4em;
    opacity: 0.3;
+   transition: opacity 0.2s linear;
+
+   &:hover {
+      opacity: 1;
+   }
 }
 
 .socialWrap {
    position: absolute;
    top: 8px;
    right: 14px;
-   opacity: 0.3;
-   background: #fff;
 
    display: flex;
    justify-content: space-between;
@@ -50,6 +53,12 @@
       width: 25px;
       height: 25px;
       color: #fff;
+      opacity: 0.3;
+      transition: opacity 0.2s linear;
+
+      &:hover {
+         opacity: 1;
+      }
    }
 }
 

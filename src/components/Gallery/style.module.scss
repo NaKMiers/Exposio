@@ -69,8 +69,8 @@
    }
 
    @media (max-width: 1000px) {
-      height: auto !important;
       width: 100%;
+      min-height: auto;
 
       & > div {
          position: static;
