@@ -1,16 +1,15 @@
 .App {
-   background-repeat: no-repeat;
-   background-position: center;
-   background-attachment: fixed;
-   background-size: cover;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-
    user-select: none;
 
-   @media (max-width: 1000px) {
-      background-attachment: scroll;
+   & > .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
    }
 }
 

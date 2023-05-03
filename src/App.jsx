@@ -56,7 +56,13 @@ function App() {
    }, [handleScroll])
 
    return (
-      <div className={styles.App} style={{ backgroundImage: `url(${curBg.bg})` }}>
+      <div className={styles.App}>
+         <div
+            className={styles.background}
+            style={{
+               background: `url(${curBg.bg})`,
+            }}
+         />
          <Routes>
             <Route
                path='/'

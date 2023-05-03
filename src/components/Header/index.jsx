@@ -38,7 +38,7 @@ function Header() {
                   Service
                </a>
                <a href='#Contact' onClick={() => setOpenMenu(false)}>
-                  Blog
+                  Contact
                </a>
             </div>
          </div>
