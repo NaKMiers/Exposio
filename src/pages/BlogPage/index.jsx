@@ -59,7 +59,7 @@ function BlogPage() {
             <p>{data.content}</p>
 
             <div className={`${styles.thumbnail} ${styles.fade}`}>
-               <img src={data.thumbnail} alt='thumbnail' />
+               <img src={data.thumbnail} alt='thumbnail' loading='lazy' />
             </div>
 
             <div className={styles.social}>

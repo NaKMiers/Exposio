@@ -57,7 +57,7 @@ function Service() {
          <div className={styles.serviceContainer} ref={serviceContainerRef}>
             <div className={styles.serviceItem}>
                <div className={styles.thumbnail}>
-                  <img src='/imgs/ser1.jpg' alt='thumbnail' />
+                  <img src='/imgs/ser1.jpg' alt='thumbnail' loading='lazy' />
                </div>
                <div className={styles.content}>
                   <h3>Wedding</h3>
@@ -72,7 +72,7 @@ function Service() {
 
             <div className={styles.serviceItem} style={{ marginTop: '15vh' }}>
                <div className={styles.thumbnail}>
-                  <img src='/imgs/ser2.jpg' alt='thumbnail' />
+                  <img src='/imgs/ser2.jpg' alt='thumbnail' loading='lazy' />
                </div>
                <div className={styles.content}>
                   <h3>Business</h3>
@@ -87,7 +87,7 @@ function Service() {
 
             <div className={styles.serviceItem} style={{ marginTop: '-15vh' }}>
                <div className={styles.thumbnail}>
-                  <img src='/imgs/ser3.jpg' alt='thumbnail' />
+                  <img src='/imgs/ser3.jpg' alt='thumbnail' loading='lazy' />
                </div>
                <div className={styles.content}>
                   <h3>Product</h3>

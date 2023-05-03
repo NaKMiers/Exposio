@@ -64,7 +64,7 @@ function Gallery() {
                <div className={styles.galleryItem} key={gallery.image}>
                   <div>
                      <Link to={'/gallery/' + slugify(gallery.image)}>
-                        <img src={gallery.image} alt='thumbnail' />
+                        <img src={gallery.image} alt='thumbnail' loading='lazy' />
                      </Link>
                   </div>
                </div>

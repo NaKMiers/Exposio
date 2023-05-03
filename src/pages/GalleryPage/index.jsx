@@ -36,16 +36,16 @@ function GalleryPage() {
          </Link>
          <div className={styles.socialWrap}>
             <a href='https://www.facebook.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/facebook.png' alt='social' />
+               <img src='/imgs/facebook.png' alt='social' loading='lazy' />
             </a>
             <a href='https://twitter.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/pinterest.png' alt='social' />
+               <img src='/imgs/pinterest.png' alt='social' loading='lazy' />
             </a>
             <a href='https://www.pinterest.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/twitter.png' alt='social' />
+               <img src='/imgs/twitter.png' alt='social' loading='lazy' />
             </a>
             <a href='https://www.linkedin.com' target='_blank' rel='noreferrer'>
-               <img src='/imgs/linkedin.png' alt='social' />
+               <img src='/imgs/linkedin.png' alt='social' loading='lazy' />
             </a>
          </div>
          <Link to={'/gallery/' + slugify(prev)} className={styles.leftBtn}>
@@ -56,7 +56,7 @@ function GalleryPage() {
          </Link>
 
          <div className={styles.image}>
-            <img src={data} alt='gallery' ref={imageRef} />
+            <img src={data} alt='gallery' ref={imageRef} loading='lazy' />
          </div>
       </div>
    )

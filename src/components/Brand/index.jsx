@@ -51,7 +51,7 @@ function Brand() {
             {brands.map(brand => (
                <div className={styles.brandItem} key={brand.name}>
                   <div className={styles.image}>
-                     <img src={brand.logo} alt='logo' />
+                     <img src={brand.logo} alt='logo' loading='lazy' />
                   </div>
                   <a href='empty' className={styles.content}>
                      <p>{brand.name}</p>
