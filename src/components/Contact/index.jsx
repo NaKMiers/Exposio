@@ -17,7 +17,6 @@ function Contact() {
       const bottom = contactRef.current.getBoundingClientRect().bottom
 
       if (top < window.innerHeight && bottom > 0 && curBackground.id !== 2) {
-         console.log(123123)
          dispatch({ type: 'change-background', id: 2 })
       }
    }, [curBackground.id, dispatch])
